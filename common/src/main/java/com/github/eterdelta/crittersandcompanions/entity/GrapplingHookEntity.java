@@ -47,6 +47,11 @@ public class GrapplingHookEntity extends ThrowableItemProjectile {
             addedToWorld = true;
         }
 
+        if (getOwner() == null) {
+            discard();
+            return;
+        }
+
         var offsetLengthSqr = distanceToSqr(getOwner());
 
         var maxDistance = Services.CONFIGS.common().grapplingHookMaxDistance.get();
